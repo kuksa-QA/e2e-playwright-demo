@@ -1,7 +1,6 @@
 import { BasePage } from './base-page';
 import { Page } from '@playwright/test';
 import { Country } from '../src/types/country';
-import {HomePage} from "./home-page";
 import {AccountCreatedPage} from "./account-created-page";
 
 export class AccountCreatePage extends BasePage {
