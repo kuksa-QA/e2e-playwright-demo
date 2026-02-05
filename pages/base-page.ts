@@ -1,10 +1,12 @@
 import { Page } from '@playwright/test';
 
 export class BasePage {
-    protected page: Page;
+    readonly page: Page;
+    readonly url: string;
 
     constructor(page: Page) {
         this.page = page;
+        this.url = 'https://automationexercise.com/'
     }
 
     async navigate(path: string = '/') {
