@@ -1,6 +1,7 @@
 import {expect, test} from '@playwright/test';
 import { HomePage } from '../../pages/home-page';
 import { LoginPage } from '../../pages/login-page';
+import {stableTestUser} from "../../fixture/test-data";
 
 test('User can login with valid credentials', async ({ page }) => {
     const homePage = new HomePage(page);
@@ -10,8 +11,8 @@ test('User can login with valid credentials', async ({ page }) => {
     await homePage.loginButton.click();
 
     await loginPage.login(
-        'test_test_test@gmail.com',
-        'test_test_test'
+        stableTestUser.email,
+        stableTestUser.password
     );
 
     await expect(homePage.logoutButton).toBeVisible();

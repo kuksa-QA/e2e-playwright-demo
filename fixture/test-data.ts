@@ -17,3 +17,8 @@ export const testUser = {
     zipcode: '2000',
     phone_number: '0400000000'
 } as const
+
+export const stableTestUser = {
+    email: 'test_test_test@gmail.com',
+    password: 'test_test_test'
+}
