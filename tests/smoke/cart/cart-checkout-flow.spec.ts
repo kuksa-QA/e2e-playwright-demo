@@ -1,11 +1,11 @@
 import { test, expect, Browser, BrowserContext, Page } from '@playwright/test';
-import { HomePage } from '../../pages/home-page';
-import { CartPage } from '../../pages/cart-page';
-import { CheckOutPage } from '../../pages/checkout-page';
-import { PaymentPage } from '../../pages/payment-page';
-import {PaymentDonePage} from "../../pages/payment-done-page";
-import {LoginPage} from "../../pages/login-page";
-import {stableTestUser} from "../../fixture/test-data";
+import { HomePage } from '../../../pages/home-page';
+import { CartPage } from '../../../pages/cart-page';
+import { CheckOutPage } from '../../../pages/checkout-page';
+import { PaymentPage } from '../../../pages/payment-page';
+import {PaymentDonePage} from "../../../pages/payment-done-page";
+import {LoginPage} from "../../../pages/login-page";
+import {stableTestUser} from "../../../fixture/test-data";
 
 test.describe.configure({ mode: 'serial' });
 
