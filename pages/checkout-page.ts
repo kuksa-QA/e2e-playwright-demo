@@ -1,6 +1,7 @@
-import {BasePage} from "./base-page";
-import {Locator, Page} from "@playwright/test";
-import {PaymentPage} from "./payment-page";
+import { Locator, Page } from '@playwright/test';
+
+import { BasePage } from './base-page';
+import { PaymentPage } from './payment-page';
 
 export class CheckOutPage extends BasePage{
     override url = 'https://automationexercise.com/checkout'

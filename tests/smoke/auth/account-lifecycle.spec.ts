@@ -33,7 +33,7 @@ test.describe('Account lifecycle (multi-test flow)', () => {
 
     test('User data for new account is accepted', async () => {
         await homePage.navigate();
-        await homePage.loginButton.click();
+        await homePage.header.loginButton.click();
 
         accountCreatePage = await loginPage.signUp(testUser.name, email);
 
@@ -62,11 +62,11 @@ test.describe('Account lifecycle (multi-test flow)', () => {
         homePage = await accountCreatedPage.goToHomePage();
 
         await expect(homePage.page).toHaveURL(homePage.url);
-        await expect(homePage.logoutButton).toBeVisible();
+        await expect(homePage.header.logoutButton).toBeVisible();
     });
 
     test('User can delete account', async () => {
-        deleteAccountPage = await homePage.deleteAccount();
+        deleteAccountPage = await homePage.header.deleteAccount();
 
         await expect(deleteAccountPage.page).toHaveURL(deleteAccountPage.url);
     });
@@ -75,7 +75,7 @@ test.describe('Account lifecycle (multi-test flow)', () => {
         homePage = await deleteAccountPage.goToHomePage();
 
         await expect(homePage.page).toHaveURL(homePage.url);
-        await expect(homePage.loginButton).toBeVisible();
+        await expect(homePage.header.loginButton).toBeVisible();
     });
 
     test.afterAll(async () => {

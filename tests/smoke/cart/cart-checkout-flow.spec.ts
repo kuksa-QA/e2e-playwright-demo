@@ -30,7 +30,7 @@ test.describe('Cart → Checkout → Payment flow', () => {
         homePage = new HomePage(page);
 
         await homePage.navigate();
-        loginPage = await homePage.goToLoginSignUpPage();
+        loginPage = await homePage.header.goToLoginSignUpPage();
 
         await loginPage.login(
             stableTestUser.email,

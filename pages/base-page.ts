@@ -1,4 +1,7 @@
-import { Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
+
+import { LoginPage } from './login-page';
+import { AccountDeletePage } from './account-delete-page';
 
 export class BasePage {
     readonly page: Page;

@@ -1,6 +1,7 @@
-import {BasePage} from "./base-page";
-import {Page} from "@playwright/test";
-import {HomePage} from "./home-page";
+import { Page } from '@playwright/test';
+
+import { BasePage } from './base-page';
+import { HomePage } from './home-page';
 
 export class AccountDeletePage extends BasePage{
     override url = 'https://automationexercise.com/delete_account'

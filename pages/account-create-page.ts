@@ -1,7 +1,9 @@
-import { BasePage } from './base-page';
 import { Page } from '@playwright/test';
+
+import { BasePage } from './base-page';
+import { AccountCreatedPage } from './account-created-page';
+
 import { Country } from '../src/types/country';
-import {AccountCreatedPage} from "./account-created-page";
 
 export class AccountCreatePage extends BasePage {
     override url = 'https://automationexercise.com/signup'

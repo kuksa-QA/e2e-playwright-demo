@@ -1,6 +1,8 @@
-import {BasePage} from "./base-page";
-import {Locator, Page} from "@playwright/test";
-import {CheckOutPage} from "./checkout-page";
+import { Locator, Page } from '@playwright/test';
+
+import { CheckOutPage } from './checkout-page';
+import { BasePage } from './base-page';
+
 
 export class CartPage extends BasePage {
     override url = 'https://automationexercise.com/view_cart'

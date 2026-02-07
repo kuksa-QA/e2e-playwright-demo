@@ -1,6 +1,7 @@
-import {BasePage} from "./base-page";
-import {Page} from "@playwright/test";
-import {PaymentDonePage} from "./payment-done-page";
+import { Page } from '@playwright/test';
+
+import { BasePage } from './base-page';
+import { PaymentDonePage } from './payment-done-page';
 
 export class PaymentPage extends BasePage{
     override url = 'https://automationexercise.com/payment'

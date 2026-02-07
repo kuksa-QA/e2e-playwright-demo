@@ -1,7 +1,9 @@
-import { Page} from '@playwright/test';
+import {Locator, Page} from '@playwright/test';
+
 import { BasePage } from './base-page';
 import { HomePage } from './home-page';
-import {AccountCreatePage} from "./account-create-page";
+import { AccountCreatePage } from './account-create-page';
+import { Header } from './components/header';
 
 export class LoginPage extends BasePage {
     override url = 'https://automationexercise.com/login';
@@ -9,18 +11,24 @@ export class LoginPage extends BasePage {
         super(page);
     }
 
-    loginEmailInput = this.page.locator('input[data-qa="login-email"]');
-    passwordInput = this.page.locator('input[data-qa="login-password"]');
-    loginButton =  this.page.locator('button[data-qa="login-button"]');
+    header = new Header(this.page)
 
-    nameInput = this.page.locator('input[data-qa="signup-name"]');
-    signUpEmailInput = this.page.locator('input[data-qa="signup-email"]');
-    signUpButton = this.page.locator('button[data-qa="signup-button"]');
+    loginForm = this.page.locator('.login-form');
+    loginFormHeader = this.loginForm.locator('h2');
+    loginEmailInput = this.loginForm.locator('input[data-qa="login-email"]');
+    passwordInput = this.loginForm.locator('input[data-qa="login-password"]');
+    formLoginButton =  this.loginForm.locator('button[data-qa="login-button"]');
+
+    signUpForm  = this.page.locator('.signup-form');
+    signUpFormHeader  = this.signUpForm.locator('h2');
+    nameInput = this.signUpForm.locator('input[data-qa="signup-name"]');
+    signUpEmailInput = this.signUpForm.locator('input[data-qa="signup-email"]');
+    signUpButton = this.signUpForm.locator('button[data-qa="signup-button"]');
 
     async login(email: string, password: string): Promise<HomePage> {
         await this.loginEmailInput.pressSequentially(email);
         await this.passwordInput.pressSequentially(password);
-        await this.loginButton.click();
+        await this.formLoginButton.click();
 
         return new HomePage(this.page);
     }
