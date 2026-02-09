@@ -9,7 +9,8 @@ export class BasePage {
         this.url = 'https://automationexercise.com/'
     }
 
-    async navigate(path: string = '/') {
+    async navigate(path = '/') {
         await this.page.goto(path);
+        await this.page.waitForLoadState('networkidle');
     }
 }

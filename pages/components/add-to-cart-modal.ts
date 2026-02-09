@@ -1,17 +1,15 @@
-import {Locator, Page} from "@playwright/test";
+import { Locator, Page } from '@playwright/test';
 
 export class AddToCartModal {
-    readonly locator: Locator;
+    readonly page: Page;
+    readonly root: Locator;
 
-    constructor(parent: Page) {
-        this.locator = parent.locator('.modal-content');
-    }
-
-    get continueShoppingButton() {
-        return this.locator.locator('button');
+    constructor(page: Page) {
+        this.page = page;
+        this.root = page.locator('.modal-content');
     }
 
     get goToCartButton() {
-        return this.locator.locator('a[href="/view_cart"]')
+        return this.root.locator('a[href="/view_cart"]')
     }
 }

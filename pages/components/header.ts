@@ -8,7 +8,7 @@ export class Header {
 
     constructor(page: Page) {
         this.page = page;
-        this.root = page.locator('header'); //
+        this.root = page.locator('header');
     }
 
     get loginButton(): Locator {
@@ -27,34 +27,8 @@ export class Header {
         return this.root.locator('a[href="/"]').last();
     }
 
-    get productsButton(): Locator {
-        return this.root.locator('a[href="/products"]');
-    }
-
     get cartButton(): Locator {
         return this.root.locator('a[href="/view_cart"]');
-    }
-
-    get testCasesButton(): Locator {
-        return this.root.locator('a[href="/test-cases"]');
-    }
-
-    get apiTestingButton(): Locator {
-        return this.root.locator('a[href="/api_list"]');
-    }
-
-    get videoTutorialButton(): Locator {
-        return this.root.locator(
-            'a[href="https://www.youtube.com/c/AutomationExercise"]'
-        );
-    }
-
-    get contactUsButton(): Locator {
-        return this.root.locator('a[href="/contact_us"]');
-    }
-
-    get logo(): Locator {
-        return this.root.locator('img[src="/static/images/home/logo.png"]');
     }
 
     async goToLoginSignUpPage(): Promise<LoginPage> {

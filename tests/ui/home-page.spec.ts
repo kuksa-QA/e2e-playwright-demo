@@ -4,7 +4,7 @@ import { HomePage } from '../../pages/home-page';
 
 test.describe.configure({ mode: 'parallel' });
 
-test.describe.only('Login page', () => {
+test.describe('Home page', () => {
     let homePage: HomePage;
     test.beforeEach(async ({page}) => {
         homePage = new HomePage(page)

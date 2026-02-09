@@ -1,4 +1,4 @@
-import {Locator, Page} from "@playwright/test";
+import { Locator, Page } from '@playwright/test';
 
 export class ProductCard {
     readonly locator: Locator;
@@ -10,5 +10,4 @@ export class ProductCard {
     get addToCartButton() {
         return this.locator.getByText('Add to cart').first();
     }
-
 }
