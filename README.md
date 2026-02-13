@@ -105,10 +105,11 @@ Tests are executed on:
 
 ## ⚠️ Notes
 
-This project is intended as a demo / portfolio example
-Test coverage is representative, not exhaustive
-The tested application is a public demo site
+- This project is intended as a demo / portfolio example
+- Test coverage is representative, not exhaustive
+- The tested application is a public demo site
 
 ## 👤 Author - Ekaterina Kuksa
 Created for demonstration and learning purposes using Playwright and TypeScript.
-Please take into consideration that target application might be anstable.
+
+Please take into consideration that target application might be unstable (some test will either run locally, or in CI).
