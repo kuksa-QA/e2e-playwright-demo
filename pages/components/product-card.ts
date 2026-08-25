@@ -4,10 +4,10 @@ export class ProductCard {
     readonly locator: Locator;
 
     constructor(parent: Page, name: string) {
-        this.locator = parent.locator('.single-products').filter({hasText: name}).first();
+        this.locator = parent.locator('.single-products').filter({ hasText: name }).first();
     }
 
-    get addToCartButton() {
-        return this.locator.getByText('Add to cart').first();
+    get addToCartButton(): Locator {
+        return this.locator.locator('.productinfo a.add-to-cart');
     }
 }

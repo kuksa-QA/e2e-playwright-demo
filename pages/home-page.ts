@@ -34,7 +34,8 @@ export class HomePage extends BasePage {
  
     async addProductToCart(name: string): Promise<CartPage> {
         await this.productCard(name).addToCartButton.click();
+        await this.addToCartModal.root.waitFor({ state: 'visible' });
         await this.addToCartModal.goToCartButton.click();
-        return new CartPage(this.page)
+        return new CartPage(this.page);
     }
 }
