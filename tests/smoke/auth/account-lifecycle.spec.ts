@@ -4,7 +4,7 @@ import { LoginPage } from '../../../pages/login-page';
 import { AccountCreatePage } from '../../../pages/account-create-page';
 import { AccountCreatedPage } from '../../../pages/account-created-page';
 import { AccountDeletePage } from '../../../pages/account-delete-page';
-import { testUser } from '../../../fixture/test-data';
+import { testUser } from '../../../fixtures/test-data';
 
 test.describe.configure({ mode: 'serial' });
 

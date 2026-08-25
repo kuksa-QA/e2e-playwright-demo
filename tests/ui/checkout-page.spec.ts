@@ -2,7 +2,7 @@ import {expect, test} from "@playwright/test";
 import {HomePage} from "../../pages/home-page";
 import {CartPage} from "../../pages/cart-page";
 import {CheckOutPage} from "../../pages/checkout-page";
-import {stableTestUser} from "../../fixture/test-data";
+import {stableTestUser} from "../../fixtures/test-data";
 import {LoginPage} from "../../pages/login-page";
 
 test.describe('Cart page', () => {

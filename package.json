@@ -12,6 +12,7 @@
     "test:ui-tests": "playwright test tests/ui",
     "test:chromium": "playwright test --project=chromium",
     "test:report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
     "install:browsers": "playwright install"
   },
   "repository": {
@@ -27,6 +28,7 @@
   "homepage": "https://github.com/kuksa-QA/e2e-playwright-demo#readme",
   "devDependencies": {
     "@playwright/test": "^1.58.1",
-    "@types/node": "^25.2.0"
+    "@types/node": "^25.2.0",
+    "typescript": "^7.0.2"
   }
 }

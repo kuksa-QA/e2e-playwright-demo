@@ -1,9 +1,7 @@
-import {expect, test} from '@playwright/test';
-import { HomePage } from '../../pages/home-page';
-
-test('Home page loads successfully', async ({ page }) => {
-    const homePage = new HomePage(page);
-
+import { expect, test } from '../../fixtures/pages';
+ 
+test('Home page loads successfully', async ({ homePage }) => {
     await homePage.navigate();
-    await expect(page).toHaveTitle(/Automation Exercise/i);
+    await expect(homePage.page).toHaveTitle(/Automation Exercise/i);
 });
+ 
