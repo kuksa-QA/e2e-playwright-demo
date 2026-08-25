@@ -3,9 +3,10 @@ import { HomePage } from '../../../pages/home-page';
 import { CartPage } from '../../../pages/cart-page';
 import { CheckOutPage } from '../../../pages/checkout-page';
 import { PaymentPage } from '../../../pages/payment-page';
-import {PaymentDonePage} from "../../../pages/payment-done-page";
-import {LoginPage} from "../../../pages/login-page";
-import {stableTestUser} from "../../../fixtures/test-data";
+import { PaymentDonePage } from "../../../pages/payment-done-page";
+import { LoginPage } from "../../../pages/login-page";
+import { stableTestUser } from "../../../fixtures/test-data";
+import { blockThirdPartyNoise } from '../../../fixtures/network';
 
 test.describe.configure({ mode: 'serial' });
 
@@ -25,6 +26,7 @@ test.describe('Cart → Checkout → Payment flow', () => {
     test.beforeAll(async ({ browser: playwrightBrowser }) => {
         browser = playwrightBrowser;
         context = await browser.newContext();
+        await blockThirdPartyNoise(context);
         page = await context.newPage();
 
         homePage = new HomePage(page);
