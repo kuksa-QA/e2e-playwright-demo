@@ -1,23 +1,15 @@
-import {expect, test} from "@playwright/test";
-import {HomePage} from "../../pages/home-page";
-import {CartPage} from "../../pages/cart-page";
-import {CheckOutPage} from "../../pages/checkout-page";
-import {stableTestUser} from "../../fixtures/test-data";
-import {LoginPage} from "../../pages/login-page";
+import { expect, test } from '../../fixtures/pages';
+import { AUTH_FILE } from '../../fixtures/auth';
+import { stableTestUser } from '../../fixtures/test-data';
+import { CheckOutPage } from '../../pages/checkout-page';
+ 
+test.use({ storageState: AUTH_FILE });
 
-test.describe('Cart page', () => {
-    let homePage: HomePage;
-    let loginPage: LoginPage;
-    let cartPage: CartPage;
+test.describe('Checkout page', () => {
     let checkoutPage: CheckOutPage;
 
-    test.beforeEach(async ({page}) => {
-        homePage = new HomePage(page);
-        await homePage.navigate();
-        loginPage = await homePage.header.goToLoginSignUpPage();
-        homePage = await loginPage.login(stableTestUser.email, stableTestUser.password);
-        cartPage = await homePage.addProductToCart('Blue Top');
-        checkoutPage = await cartPage.proceedToCheckout()
+    test.beforeEach(async ({ cartWithProduct }) => {
+        checkoutPage = await cartWithProduct.proceedToCheckout();
     })
 
     test('Header UI', async () => {

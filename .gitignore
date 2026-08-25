@@ -9,6 +9,7 @@ node_modules/
 playwright-report/
 test-results/
 blob-report/
+playwright/.auth/
 
 # Environment files
 .env
