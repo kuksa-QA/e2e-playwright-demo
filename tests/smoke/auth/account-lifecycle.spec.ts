@@ -4,7 +4,8 @@ import { LoginPage } from '../../../pages/login-page';
 import { AccountCreatePage } from '../../../pages/account-create-page';
 import { AccountCreatedPage } from '../../../pages/account-created-page';
 import { AccountDeletePage } from '../../../pages/account-delete-page';
-import { testUser } from '../../../fixture/test-data';
+import { testUser } from '../../../fixtures/test-data';
+import { blockThirdPartyNoise } from '../../../fixtures/network';
 
 test.describe.configure({ mode: 'serial' });
 
@@ -23,6 +24,7 @@ test.describe('Account lifecycle (multi-test flow)', () => {
     test.beforeAll(async ({ browser: playwrightBrowser }) => {
         browser = playwrightBrowser;
         context = await browser.newContext();
+        await blockThirdPartyNoise(context);
         page = await context.newPage();
 
         email = testUser.generateEmail();

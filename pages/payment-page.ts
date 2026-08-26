@@ -19,11 +19,11 @@ export class PaymentPage extends BasePage{
     confirmButton = this.page.locator('button[data-qa="pay-button"]');
 
     async fillPaymentData(name: string, cardNumber: number, cvc: number, month: number, year: number): Promise<void> {
-        await this.nameInput.pressSequentially(name);
-        await this.cardNumberInput.pressSequentially(cardNumber.toString());
-        await this.cvcInput.pressSequentially(cvc.toString());
-        await this.expiryMonthInput.pressSequentially(month.toString());
-        await this.expiryYearInput.pressSequentially(year.toString());
+        await this.nameInput.fill(name);
+        await this.cardNumberInput.fill(cardNumber.toString());
+        await this.cvcInput.fill(cvc.toString());
+        await this.expiryMonthInput.fill(month.toString());
+        await this.expiryYearInput.fill(year.toString());
     }
 
     async pay(): Promise<PaymentDonePage> {

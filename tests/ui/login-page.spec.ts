@@ -1,24 +1,20 @@
-import { expect, test } from '@playwright/test';
-
+import { expect, test } from '../../fixtures/pages';
 import { LoginPage } from '../../pages/login-page';
-import { HomePage } from '../../pages/home-page';
-
+ 
 test.describe.configure({ mode: 'parallel' });
-
+ 
 test.describe('Login page', () => {
-    let homePage: HomePage;
     let loginPage: LoginPage;
-    test.beforeEach( async ({page}) => {
-        homePage =  new HomePage(page)
-        await homePage.navigate()
-        loginPage = await homePage.header.goToLoginSignUpPage()
-
+ 
+    test.beforeEach(async ({ homePage }) => {
+        await homePage.navigate();
+        loginPage = await homePage.header.goToLoginSignUpPage();
     })
-
+ 
     test('Header UI', async () => {
         await expect(loginPage.header.loginButton).toHaveCSS('color', 'rgb(255, 165, 0)')
     })
-
+ 
     test('Login form', async () => {
         await expect.soft(loginPage.loginFormHeader).toHaveText('Login to your account')
         await expect.soft(loginPage.loginEmailInput).toHaveValue('')
@@ -31,7 +27,7 @@ test.describe('Login page', () => {
         await expect.soft(loginPage.formLoginButton).toHaveCSS('background-color' , 'rgb(254, 152, 15)')
         await expect(loginPage.formLoginButton).toHaveCSS('color' , 'rgb(255, 255, 255)')
     })
-
+ 
     test('Sign Up form', async () => {
         await expect.soft(loginPage.signUpFormHeader).toHaveText('New User Signup!')
         await expect.soft(loginPage.nameInput).toHaveValue('')

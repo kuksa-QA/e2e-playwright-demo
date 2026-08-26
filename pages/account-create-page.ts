@@ -39,15 +39,15 @@ export class AccountCreatePage extends BasePage {
         zipcode: string,
         mobileNumber: string
     ): Promise<void> {
-        await this.passwordInput.pressSequentially(password);
-        await this.firstNameInput.pressSequentially(firstName);
-        await this.lastNameInput.pressSequentially(lastName);
-        await this.addressInput.pressSequentially(address);
+        await this.passwordInput.fill(password);
+        await this.firstNameInput.fill(firstName);
+        await this.lastNameInput.fill(lastName);
+        await this.addressInput.fill(address);
         await this.selectCountry(country);
-        await this.stateInput.pressSequentially(state);
-        await this.cityInput.pressSequentially(city);
-        await this.zipcodeInput.pressSequentially(zipcode);
-        await this.mobileNumberInput.pressSequentially(mobileNumber);
+        await this.stateInput.fill(state);
+        await this.cityInput.fill(city);
+        await this.zipcodeInput.fill(zipcode);
+        await this.mobileNumberInput.fill(mobileNumber);
     }
 
     async createAccount(): Promise<AccountCreatedPage> {
