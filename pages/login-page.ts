@@ -26,16 +26,16 @@ export class LoginPage extends BasePage {
     signUpButton = this.signUpForm.locator('button[data-qa="signup-button"]');
 
     async login(email: string, password: string): Promise<HomePage> {
-        await this.loginEmailInput.pressSequentially(email);
-        await this.passwordInput.pressSequentially(password);
+        await this.loginEmailInput.fill(email);
+        await this.passwordInput.fill(password);
         await this.formLoginButton.click();
 
         return new HomePage(this.page);
     }
 
     async signUp(name: string, email: string): Promise<AccountCreatePage> {
-        await this.nameInput.pressSequentially(name);
-        await this.signUpEmailInput.pressSequentially(email);
+        await this.nameInput.fill(name);
+        await this.signUpEmailInput.fill(email);
         await this.signUpButton.click();
 
         return new AccountCreatePage(this.page);

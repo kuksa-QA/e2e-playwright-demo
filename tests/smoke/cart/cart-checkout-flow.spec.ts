@@ -14,7 +14,6 @@ test.describe('Cart → Checkout → Payment flow', () => {
     let browser: Browser;
     let context: BrowserContext;
     let page: Page;
-
     let homePage: HomePage;
     let loginPage: LoginPage;
     let cartPage: CartPage;
@@ -39,7 +38,6 @@ test.describe('Cart → Checkout → Payment flow', () => {
             stableTestUser.password
         );
     });
-
 
     test('User can add product to cart from main page', async () => {
         await homePage.productCard(PRODUCT_NAME).locator.hover()
@@ -70,17 +68,16 @@ test.describe('Cart → Checkout → Payment flow', () => {
         await expect(paymentDonePage.orderPlacedTitle).toHaveText('Order Placed!')
         await expect(paymentDonePage.invoiceButton).toBeVisible()
     });
-
-    test('User can download invoice', async () => {
-        const DOWNLOAD_PROMISE = paymentDonePage.page.waitForEvent('download')
-        await paymentDonePage.invoiceButton.click()
-        const DOWNLOAD = await DOWNLOAD_PROMISE
-        const FILE_NAME = DOWNLOAD.suggestedFilename()
-
-        expect(DOWNLOAD, 'Download started').toBeTruthy()
-        expect(DOWNLOAD, 'File in file system').toBeTruthy()
-        expect(FILE_NAME).toMatch(/invoice/)
-
+ 
+    test('User can download invoice', async ({ browserName }) => {
+        test.skip(browserName === 'webkit', 'WebKit does not emit the download event for this link in CI');
+ 
+        const DOWNLOAD_PROMISE = paymentDonePage.page.waitForEvent('download');
+        await paymentDonePage.invoiceButton.click();
+        const DOWNLOAD = await DOWNLOAD_PROMISE;
+ 
+        expect(DOWNLOAD.suggestedFilename()).toMatch(/invoice/);
+        expect(await DOWNLOAD.path(), 'downloaded file exists on disk').not.toBeNull();
     })
 
     test('User can return to home page', async () => {
